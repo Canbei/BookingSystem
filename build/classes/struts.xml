@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/*
+ * $Id: struts-plugin.xml 722219 2008-12-01 20:41:26Z musachy $
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+-->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <!--  Overwrite Convention -->
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.convention.action.suffix" value="Controller"/>
+    <constant name="struts.convention.action.mapAllMatches" value="true"/>
+    <constant name="struts.configuration.xml.reload" value="true"></constant>
+    <constant name="struts.convention.package.locators" value="example"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+    <constant name="struts.action.extension" value=""/>
+    <constant name="struts.action.excludePattern" value=".jsp, .css, .js"/>
+    
+       
+    <package name="Login"  extends="struts-default" namespace="/">
+    	<action name="login" class="com.Booking.Action.LoginAction" method="Login">
+    		<result name="loginSuccess">/WEB-INF/jsp/success.jsp</result>
+    		<result name="loginFailure">/WEB-INF/jsp/failure.jsp</result> 
+    		<result name="input">/Register.jsp</result>   	
+    	</action>
+    </package>
+    
+     <package name="Register"  extends="struts-default" namespace="/">
+    	<action name="register" class="com.Booking.Action.RegisterAction" method="Register">
+    		<result name="registerSuccess">/WEB-INF/jsp/success.jsp</result>
+    		<result name="registerFailure">/WEB-INF/jsp/failure.jsp</result> 
+    		<result name="input">/Register.jsp</result>   	
+    	</action>
+    </package>
+    
+    <package name="Show"  extends="struts-default" namespace="/">
+    	<action name="show" class="com.Booking.Action.ShowAction" method="show">
+    		<result name="showSuccess">/WEB-INF/jsp/show.jsp</result>	
+    		<result name="showFailure"></result>
+    	</action>
+    </package>
+    
+    <package name="Upload" extends="struts-default">
+       <action name="upload" class="com.Booking.Action.UpLoadAction">
+         <result name="success">/WEB-INF/jsp/UpLoadSuccess.jsp</result>
+         <result name="error">/WEB-INF/jsp/UpLoadFailure.jsp</result>
+       </action>
+   </package>
+</struts>

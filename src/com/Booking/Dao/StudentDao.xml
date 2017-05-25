@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Booking.Dao.StudentDao">
+
+    <select id="selectStudent" parameterType="Student" resultType="Student">
+        select * from Student where username = #{username} and password = #{password};
+    </select>
+    
+    <insert id="registerStudent" parameterType="Student" useGeneratedKeys="true" keyProperty="no">
+        insert into Student (username, password, name, phone, district, email)
+        values(#{username}, #{password}, #{name}, #{phone}, #{district}, #{email});
+    </insert>
+    
+    <select id="showStudent"  resultType="Student">
+        select * from Student;
+    </select>
+    
+ </mapper>
